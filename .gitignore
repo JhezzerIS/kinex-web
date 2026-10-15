@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.evidence-path
+.archify/
+.reports/
+test-results/
+playwright-report/
+*.local
+*.zip
+.exports/

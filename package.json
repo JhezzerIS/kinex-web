@@ -1,0 +1,21 @@
+{
+  "name": "kinex-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "check": "tsc --noEmit",
+    "test": "npm run build && playwright test",
+    "qr": "node scripts/create-qr.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "prettier": "3.9.10",
+    "qrcode": "1.5.4",
+    "typescript": "7.0.2",
+    "vite": "8.3.4"
+  }
+}

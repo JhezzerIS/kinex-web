@@ -1,0 +1,6 @@
+* text=auto eol=lf
+
+# Conservar los bytes de los artefactos comprobados y avisos originales.
+public/diagrams/*.html -text -whitespace
+public/fonts/OFL-*.txt -text -whitespace
+public/licenses/*.txt -text -whitespace
