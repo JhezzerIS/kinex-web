@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <title>Símbolo de Kinex</title>
+  <path d="M15 12v40M17 33 45 13M17 33l28 19" stroke="#2854d8" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="15" cy="12" r="6" fill="#20231f"/>
+  <circle cx="45" cy="13" r="6" fill="#20231f"/>
+  <circle cx="45" cy="52" r="6" fill="#20231f"/>
+  <circle cx="17" cy="33" r="4" fill="#f8f7f3"/>
+</svg>
