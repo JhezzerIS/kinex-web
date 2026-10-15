@@ -175,3 +175,23 @@ del hardware como terminados.
 La reinstalación limpia `npm ci` se volvió a comprobar en Windows tras detener
 el servidor de vista previa que bloqueaba el módulo nativo de Rolldown. Terminó
 correctamente y las trece pruebas de la landing volvieron a pasar.
+
+## Comprobación de la publicación
+
+- URL pública: https://jhezzeris.github.io/kinex-web/, respuesta **HTTP 200**.
+- GitHub Pages informa `built` para la versión estática publicada en `gh-pages`.
+- Navegador real contra la URL pública a 1440 y 390 px: seis posturas, selección
+  de ambas vistas de arquitectura, fuentes y recursos sin errores de consola
+  ni respuestas HTTP fallidas. Sin desbordamiento horizontal en ambas anchuras.
+- Título y canonical públicos correctos. Capturas de ambas vistas revisadas.
+- Mapa técnico remoto con HTTP 200 y SHA-256 idéntico al artefacto comprobado.
+- SVG y PNG del QR descargados desde la web y comparados byte a byte con sus
+  originales. El PNG remoto se decodificó y devuelve la URL pública esperada.
+- El primer workflow de Actions no llegó a iniciar sus pasos: GitHub informó
+  un bloqueo de facturación de la cuenta. La publicación desde `gh-pages` con
+  `.nojekyll` sí terminó y no requiere compilar en un runner. El workflow propio
+  queda solo para ejecución manual; `npm run deploy` permite actualizar la rama
+  estática desde el equipo del desarrollador.
+
+Las comprobaciones digitales del QR no sustituyen probar su tamaño y contraste
+en el diseño final del banner con teléfonos reales antes de imprimirlo.

@@ -8,6 +8,7 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "check": "tsc --noEmit",
+    "deploy": "node scripts/deploy-pages.mjs",
     "test": "npm run build && playwright test",
     "qr": "node scripts/create-qr.mjs"
   },

@@ -44,14 +44,20 @@ No mezcles este proyecto con la rama de visión del programa de Windows.
 GitHub Pages admite alojamiento gratuito de sitios estáticos en repositorios
 públicos de GitHub Free; no requiere comprar dominio.
 
-1. Comprueba que Settings → Pages → Build and deployment utiliza **GitHub Actions**.
-2. Para actualizar, cambia el contenido, ejecuta `npm test` y publica los cambios en `main`.
-3. El workflow «Publicar Kinex en GitHub Pages» compila y despliega cada push a `main`.
-4. Comprueba en Actions que el despliegue termina correctamente y revisa la URL pública.
+1. Settings → Pages → Build and deployment utiliza **Deploy from a branch**,
+   rama **gh-pages**, carpeta **/ (root)**.
+2. Para actualizar, cambia el contenido, ejecuta `npm test`, crea el commit y
+   ejecuta `git push origin main`.
+3. Ejecuta `npm run deploy`. Compila localmente y sube únicamente `dist/` a
+   `gh-pages`, sin cambiar tu rama `main` ni forzar la historia remota.
+4. Espera la actualización de Pages y comprueba la URL pública.
 
-El workflow instala dependencias con `npm ci`, compila y publica únicamente
-`dist/`. Configura automáticamente `VITE_SITE_URL` para canonical y la imagen
-social. Si utilizas un dominio propio, cambia esa variable por su URL HTTPS.
+El script configura `VITE_SITE_URL` para canonical y la imagen social. La rama
+de publicación incluye `.nojekyll` porque contiene archivos estáticos ya compilados.
+La primera ejecución de Actions no arrancó por un bloqueo de facturación de
+la cuenta; esta configuración evita utilizar un runner para compilar la página.
+El workflow alternativo permanece disponible para ejecución manual cuando la
+cuenta pueda usar Actions y Pages se configure para ese método.
 Las rutas relativas permiten publicar bajo `/kinex-web/` o en la raíz de otro
 alojamiento estático. No hacen falta claves de API ni variables secretas.
 
