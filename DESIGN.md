@@ -25,7 +25,7 @@ ENERGY 3 / RHYTHM 3 / MOTION 2.
   tres o dos en anchuras intermedias y filas con retrato junto al texto en móvil.
   El fondo continuo separa al equipo del registro del programa; las etiquetas resumen
   contribuciones concretas y no funcionan como botones.
-- La composición cambia de titular y figura a manifiesto, laboratorio, mapa y registro.
+- La composición cambia de titular y figura a manifiesto, laboratorio, mapa y equipo.
 - Transiciones de 160–360 ms; una entrada inicial y trazas activadas por el visitante.
   Sin scroll secuestrado, sin audio y sin fondos que se muevan sin intervención.
 - Movimiento reducido: se conservan todos los estados y se elimina la interpolación.
@@ -45,7 +45,7 @@ ENERGY 3 / RHYTHM 3 / MOTION 2.
 
 El documento del proyecto define alcance y arquitectura. El mapa técnico conserva la
 referencia `bc6440d`. El catálogo ilustrado de gestos sigue la revisión `a2fbbc1` del
-sistema, ya utilizada para el banner. Se distinguen representaciones de los gestos
-y los medios reales de la aplicación, todavía pendientes.
+sistema, ya utilizada para el banner. Las manos se presentan como representaciones
+de los gestos; la sección de video fue retirada por indicación del usuario.
 No se publican metas de precisión/FPS como resultados medidos, testimonios ni personas inventadas.
 El video vacío tiene un estado explícito; la galería no aparece hasta añadir fotografías.

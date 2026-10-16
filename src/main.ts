@@ -1,9 +1,7 @@
 import './styles.css';
 import { crearMano } from './components/hand';
 import { iniciarArquitectura } from './components/architecture';
-import { montarMultimedia } from './components/media';
 import { gestos, type Gesto } from './data/gestures';
-import { medios } from './data/media';
 
 const reducirMovimiento = matchMedia('(prefers-reduced-motion: reduce)');
 crearMano(document.querySelector<HTMLElement>('#hero-hand')!);
@@ -190,4 +188,3 @@ dialogo.addEventListener('click', (evento) => {
 });
 
 iniciarArquitectura();
-montarMultimedia(medios, import.meta.env.BASE_URL);

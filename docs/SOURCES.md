@@ -35,8 +35,9 @@ Referencia del mapa técnico:
 
 Las rutas de esta tabla parten de `src/holocontrol/`. El paquete y el repositorio
 conservan el nombre original HoloControl; la marca pública es Kinex.
-Los enlaces de exploración apuntan a `develop` para seguir el avance del equipo.
-El mapa técnico ampliable conserva enlaces al commit exacto utilizado como evidencia.
+Por indicación del usuario, los enlaces de GitHub y documentación de la landing y
+del mapa técnico apuntan a la portada del repositorio. El mapa conserva el commit,
+las rutas y las líneas de la evidencia como metadatos, sin enlazar archivos concretos.
 
 ## Catálogo actualizado y equipo
 
@@ -72,7 +73,7 @@ Seleccionar un gesto no realiza reconocimiento en el navegador. La landing no so
 permisos de cámara ni ejecuta acciones del sistema.
 
 Las descripciones no afirman resultados medidos de usabilidad, precisión o rendimiento.
-El video y las capturas reales del programa siguen pendientes. La institución
+La sección de video fue retirada por indicación del usuario. La institución
 Universidad Nacional de Trujillo y la feria EXPOSIS 2026 fueron indicadas por el usuario.
 
 ## Arquitectura
@@ -86,4 +87,5 @@ El mapa no representa microservicios ni comunicación con una nube.
 La especificación editable está en `docs/architecture/kinex.architecture.json`.
 Para regenerarla se necesita Archify instalado y una copia Git del repositorio
 del programa que contenga el commit de referencia. Las evidencias locales de
-generación se conservan en `.archify/` y no se alojan con la landing.
+generación se conservan en `.archify/` y no se alojan con la landing. Al regenerar,
+los enlaces de las referencias deben conservar el destino a la portada del repositorio.

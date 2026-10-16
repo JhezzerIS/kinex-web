@@ -18,8 +18,6 @@ export function iniciarArquitectura() {
     document.querySelector('#node-title')!.textContent = pieza.titulo;
     document.querySelector('#node-description')!.textContent = pieza.descripcion;
     document.querySelector('#node-technology')!.textContent = pieza.tecnologia;
-    document.querySelector<HTMLAnchorElement>('#node-source')!.href =
-      `https://github.com/jean11op/HoloControl-Access/blob/develop/${pieza.archivo}`;
   }
 
   function detenerTraza() {

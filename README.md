@@ -7,9 +7,10 @@ Nombre definitivo confirmado: **Kinex**.
 Repositorio de la landing: https://github.com/JhezzerIS/kinex-web.
 Dirección de GitHub Pages: https://jhezzeris.github.io/kinex-web/.
 
-Incluye marca vectorial propia, fuentes locales, explorador ilustrado de seis
-gestos, dos vistas interactivas de arquitectura, mapa técnico ampliable,
-enlaces al código, configuración de video y fotografías y preparación de QR.
+Incluye marca vectorial propia, fuentes locales, explorador de seis gestos con
+manos realistas, dos vistas interactivas de arquitectura, el equipo de cinco
+integrantes y preparación de QR. Todos los enlaces de GitHub y documentación
+de la landing llevan a la portada del repositorio del sistema.
 La web no abre la cámara, no controla el dispositivo y no necesita un backend.
 
 ## Revisar localmente
@@ -90,23 +91,24 @@ código en varios teléfonos y con datos móviles antes de imprimir el banner.
 
 ## Contenido y mantenimiento
 
-| Archivo                                   | Qué se modifica                                       |
-| ----------------------------------------- | ----------------------------------------------------- |
-| `index.html`                              | Textos, navegación y secciones                        |
-| `src/data/gestures.ts`                    | Descripción y estado real de cada gesto               |
-| `src/data/architecture.ts`                | Piezas, explicaciones y vínculos al código            |
-| `src/data/media.ts`                       | Video, subtítulos y fotografías                       |
-| `src/styles.css`                          | Composición, paleta, fuentes y responsive             |
-| `public/brand/`                           | Símbolo SVG, favicon, PNG y tarjeta social            |
-| `public/diagrams/arquitectura-kinex.html` | Mapa técnico autónomo con zoom y selección            |
-| `docs/MEDIA.md`                           | Referencias y procedimiento para añadir medios reales |
-| `docs/SOURCES.md`                         | Contexto, alcance y revisión del código               |
-| `docs/QA.md`                              | Comprobaciones realizadas y límites de la revisión    |
-| `DESIGN.md`                               | Dirección visual y motivos de las decisiones          |
+| Archivo                                   | Qué se modifica                                    |
+| ----------------------------------------- | -------------------------------------------------- |
+| `index.html`                              | Textos, navegación y secciones                     |
+| `src/data/gestures.ts`                    | Descripción y estado real de cada gesto            |
+| `src/data/architecture.ts`                | Piezas, explicaciones y vínculos al código         |
+| `src/data/hand-landmarks.json`            | Coordenadas de los 21 puntos de las manos          |
+| `src/styles.css`                          | Composición, paleta, fuentes y responsive          |
+| `public/brand/`                           | Símbolo SVG, favicon, PNG y tarjeta social         |
+| `public/diagrams/arquitectura-kinex.html` | Mapa técnico autónomo con zoom y selección         |
+| `public/media/`                           | Manos realistas y fotografías del equipo           |
+| `docs/SOURCES.md`                         | Contexto, alcance y revisión del código            |
+| `docs/QA.md`                              | Comprobaciones realizadas y límites de la revisión |
+| `DESIGN.md`                               | Dirección visual y motivos de las decisiones       |
 
-La galería permanece oculta hasta tener fotos. El video no se inventa y muestra
-un estado de preparación. No se presentan metas de FPS o precisión como
-resultados medidos. Cursor, clic y scroll se distinguen de funciones previstas.
+La sección de video se retiró por indicación del usuario. La arquitectura pasa
+directamente al equipo, con numeración continua. No se presentan metas de FPS o
+precisión como resultados medidos. El catálogo visible sigue la revisión del
+sistema documentada en `docs/SOURCES.md`.
 
 ## Comprobaciones
 
@@ -127,5 +129,5 @@ no carga un framework, analítica ni bibliotecas desde un CDN.
 de las comprobaciones en [docs/QA.md](docs/QA.md).
 
 La publicación de esta versión en `JhezzerIS/kinex-web` y la activación de GitHub
-Pages fueron autorizadas por el usuario. Las fotos y el video reales se añadirán
-posteriormente sin cambiar la dirección del QR.
+Pages fueron autorizadas por el usuario. Las actualizaciones de contenido conservan
+la dirección del QR.

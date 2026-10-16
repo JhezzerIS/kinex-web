@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import { resolverMedio } from '../src/components/media';
 import { arquitectura } from '../src/data/architecture';
 import { gestos, type Gesto } from '../src/data/gestures';
 
@@ -19,8 +18,8 @@ test('navegación, recursos y contenido real sin errores de carga', async ({ pag
     await page.locator(`#navegacion a[href="#${destino}"]`).click();
     await expect(page).toHaveURL(new RegExp(`#${destino}$`));
   }
-  await expect(page.getByText('VIDEO EN PREPARACIÓN', { exact: true })).toBeVisible();
-  await expect(page.locator('#photo-gallery')).toBeHidden();
+  await expect(page.locator('#demostracion, #demo-frame, #photo-gallery')).toHaveCount(0);
+  await expect(page.getByText('VIDEO EN PREPARACIÓN', { exact: true })).toHaveCount(0);
   await expect(page.locator('video')).toHaveCount(0);
   expect(errores).toEqual([]);
 });
@@ -82,7 +81,7 @@ test('cada pieza de ambas vistas muestra su explicación y vínculo al código',
       await expect(page.locator('#node-title')).toHaveText(pieza.titulo);
       await expect(page.locator('#node-source')).toHaveAttribute(
         'href',
-        `https://github.com/jean11op/HoloControl-Access/blob/develop/${pieza.archivo}`,
+        'https://github.com/jean11op/HoloControl-Access',
       );
       await expect(page.locator('.map-node[aria-pressed="true"]')).toHaveCount(1);
     }
@@ -203,18 +202,31 @@ test('funciona bajo la subcarpeta de GitHub Pages con recursos y mapa técnico',
   }
   const mapa = page.locator('#full-diagram-link');
   const direccion = await mapa.evaluate((e: HTMLAnchorElement) => e.href);
-  expect(direccion).toBe('http://127.0.0.1:4174/kinex-web/diagrams/arquitectura-kinex.html');
-  await page.goto(direccion);
+  expect(direccion).toBe('https://github.com/jean11op/HoloControl-Access');
+  await page.goto('http://127.0.0.1:4174/kinex-web/diagrams/arquitectura-kinex.html');
   await expect(page.locator('svg').first()).toBeVisible();
   expect(errores).toEqual([]);
 });
 
-test('las rutas multimedia respetan HTTPS y la subcarpeta', () => {
-  expect(resolverMedio('media/demo.mp4', './')).toBe('./media/demo.mp4');
-  expect(resolverMedio('media/demo.mp4', '/kinex-web/')).toBe('/kinex-web/media/demo.mp4');
-  expect(resolverMedio('https://example.org/demo.mp4', './')).toBe('https://example.org/demo.mp4');
-  for (const ruta of ['javascript:alert(1)', '//example.org/demo.mp4', '../demo.mp4'])
-    expect(() => resolverMedio(ruta, './')).toThrow();
+test('los enlaces de GitHub y documentación apuntan a la portada del repositorio', async ({
+  page,
+}) => {
+  const repositorio = 'https://github.com/jean11op/HoloControl-Access';
+  await page.goto('/');
+  const externos = page.locator('a[href^="https://"]');
+  await expect(externos).toHaveCount(5);
+  for (const enlace of await externos.all()) {
+    await expect(enlace).toHaveAttribute('href', repositorio);
+    await expect(enlace).toHaveAttribute('target', '_blank');
+    await expect(enlace).toHaveAttribute('rel', 'noopener noreferrer');
+  }
+  await page.goto('/diagrams/arquitectura-kinex.html');
+  const fuentes = JSON.parse(
+    (await page.locator('#archify-source-evidence-data').textContent()) ?? '{}',
+  );
+  expect(fuentes.repository.href).toBe(repositorio);
+  for (const referencias of Object.values(fuentes.nodes) as { href: string }[][])
+    for (const referencia of referencias) expect(referencia.href).toBe(repositorio);
 });
 
 test('el hero lleva al explorador y la arquitectura con foco visible', async ({ page }) => {

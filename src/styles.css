@@ -58,8 +58,7 @@ a {
 svg {
   display: block;
 }
-img,
-video {
+img {
   max-width: 100%;
   display: block;
 }
@@ -1075,129 +1074,6 @@ h1 {
   font-weight: 600;
   margin-right: 18px;
 }
-.demo-frame {
-  min-height: 490px;
-  background: #e9ecf2;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid #dde2ec;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  place-items: center;
-  position: relative;
-}
-.demo-empty {
-  text-align: center;
-  padding: 25px 32px 42px;
-  position: relative;
-  width: 100%;
-  min-width: 0;
-  max-width: 100%;
-}
-.demo-poster-art {
-  height: 185px;
-  max-width: 500px;
-  margin-inline: auto;
-  margin-bottom: 13px;
-}
-.demo-poster-art svg {
-  width: 100%;
-  height: 100%;
-  stroke: #929db5;
-  stroke-width: 1.2;
-  fill: none;
-}
-.demo-poster-art svg > rect {
-  fill: #f8f9fc;
-}
-.demo-poster-art .poster-path {
-  stroke: var(--blue);
-  stroke-width: 2;
-  stroke-dasharray: 4 6;
-}
-.demo-poster-art .poster-cursor {
-  stroke: var(--blue);
-  stroke-width: 1.7;
-  fill: var(--lime);
-}
-.demo-empty h3 {
-  font-size: 30px;
-  font-weight: 550;
-  letter-spacing: -0.05em;
-  margin-top: 12px;
-}
-.demo-empty p {
-  font-size: 13px;
-  color: #5e687d;
-  line-height: 1.8;
-  margin-top: 13px;
-}
-.demo-empty .button {
-  margin-top: 25px;
-  min-height: 48px;
-  font-size: 12px;
-}
-.demo-frame video {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: contain;
-  background: #20231f;
-}
-.media-error {
-  font-size: 14px;
-  line-height: 1.7;
-  padding: 40px;
-  max-width: 600px;
-}
-.media-error a {
-  color: var(--blue);
-  text-decoration: underline;
-}
-.project-progress {
-  display: grid;
-  grid-template-columns: 145px 1fr auto;
-  gap: 28px;
-  margin-top: 28px;
-  align-items: start;
-}
-.progress-label {
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  font-weight: 650;
-  padding-top: 5px;
-  color: var(--muted);
-}
-.project-progress p {
-  font-size: 12px;
-  line-height: 1.8;
-  color: var(--muted);
-  max-width: 660px;
-}
-.project-progress .text-link {
-  font-size: 11px;
-  min-height: 44px;
-}
-.photo-gallery {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
-  margin-top: 32px;
-}
-.photo-gallery figure {
-  margin: 0;
-}
-.photo-gallery img {
-  width: 100%;
-  aspect-ratio: 16/10;
-  object-fit: cover;
-  border-radius: 8px;
-  background: #e9ecf2;
-}
-.photo-gallery figcaption {
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 12px;
-}
 .team-section {
   background: #f0f1eb;
   border-top: 1px solid var(--line);
@@ -1839,15 +1715,6 @@ h1 {
     width: 100%;
     margin: 0;
   }
-  .demo-frame {
-    min-height: 430px;
-  }
-  .demo-poster-art {
-    height: 160px;
-  }
-  .demo-empty h3 {
-    font-size: 27px;
-  }
   .closing-link {
     min-width: 190px;
     font-size: 17px;
@@ -2390,59 +2257,6 @@ h1 {
   }
   .tech-strip > span:first-child {
     font-size: 8px;
-  }
-  .demo-frame {
-    min-height: 450px;
-    border-radius: 8px;
-  }
-  .demo-empty {
-    padding: 18px 20px 32px;
-  }
-  .demo-poster-art {
-    height: 145px;
-    margin-bottom: 12px;
-    overflow: hidden;
-  }
-  .demo-poster-art svg {
-    min-width: 350px;
-    width: 120%;
-    margin-left: -10%;
-  }
-  .demo-empty h3 {
-    font-size: 25px;
-    line-height: 1.25;
-    margin-top: 13px;
-  }
-  .demo-empty p {
-    font-size: 12px;
-    line-height: 1.8;
-    margin-top: 15px;
-  }
-  .demo-empty p br {
-    display: none;
-  }
-  .demo-empty .button {
-    font-size: 11px;
-    padding-inline: 16px;
-    gap: 20px;
-    min-height: 48px;
-  }
-  .project-progress {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-top: 23px;
-  }
-  .project-progress p {
-    font-size: 12px;
-  }
-  .project-progress .text-link {
-    grid-column: 1;
-    justify-self: start;
-    font-size: 11px;
-  }
-  .photo-gallery {
-    grid-template-columns: 1fr;
-    gap: 24px;
   }
   .closing-section {
     padding-block: 55px;
