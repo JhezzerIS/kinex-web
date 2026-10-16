@@ -1,6 +1,6 @@
 # Contexto y fuentes de Kinex
 
-Revisión de contenido: 15 de octubre de 2026.
+Revisión de contenido: 16 de octubre de 2026.
 Nombre final confirmado por el usuario: Kinex.
 
 ## Documento de requisitos
@@ -10,9 +10,8 @@ Describe control accesible de Windows, captura de cámara, gestos, perfiles,
 calibración y una arquitectura de monolito modular con principios hexagonales.
 El archivo original no se publica como parte de esta web.
 
-Los requisitos de dibujo, arrastre, cambios de pestaña/diapositiva y otras
-ampliaciones no se presentan como acciones terminadas. El alcance de comandos
-de voz y sincronización del documento no se anuncia como disponible en el prototipo.
+Los requisitos no sustituyen la evidencia de implementación. El explorador presenta
+seis gestos del catálogo revisado, no un inventario completo de comandos del sistema.
 
 ## Código revisado
 
@@ -39,16 +38,42 @@ conservan el nombre original HoloControl; la marca pública es Kinex.
 Los enlaces de exploración apuntan a `develop` para seguir el avance del equipo.
 El mapa técnico ampliable conserva enlaces al commit exacto utilizado como evidencia.
 
-## Ilustraciones y estado
+## Catálogo actualizado y equipo
 
-La mano vectorial es una ilustración propia de los puntos y posturas, no una
-imagen capturada por el programa. Seleccionar una postura no realiza reconocimiento
-en el navegador. La landing no solicita permisos de cámara ni ejecuta acciones del sistema.
+El explorador de gestos toma como evidencia adicional la revisión
+`a2fbbc1e903a93dfd85dbcb8ab51a719fdff40c6`, la misma copia local consultada para el
+banner de EXPOSIS. Se comprobaron `domain/rules/catalogo.py`,
+`infrastructure/vision/thumb_click.py`, `configuration.py`, `gesture_recognizer.py`
+y `application/use_cases/control_aplicacion.py` dentro de `src/holocontrol/`.
+Índice corresponde a cursor; apertura y cierre del pulgar a clic; dos dedos a
+flechas y zoom; palma sostenida a pausa; puño sostenido a minimizar y deslizamiento
+horizontal a volumen. Las asignaciones descritas son las predeterminadas.
 
-Cursor, clic, scroll y pausa tienen implementación de software en el código
-revisado; esto no afirma resultados de usabilidad, precisión o rendimiento.
-El video y las fotografías reales siguen pendientes. Se omiten testimonios,
-personas, métricas de éxito, nombres de institución y cifras sin fuente.
+El enlace público del repositorio devuelve HTTP 404 en la consulta del 16 de octubre.
+La evidencia anterior es una copia local identificada por commit; no se afirma haber
+validado un estado remoto posterior. Se conservan los enlaces originales del proyecto.
+
+Las cinco fotografías del equipo y la asignación de nombres/roles proceden de los
+archivos y capturas aportados por el usuario en esta conversación. Se conservan las
+fotografías originales; la presentación usa recorte CSS. No se inventan cargos de
+liderazgo, enlaces sociales ni credenciales profesionales.
+
+## Imágenes y estado
+
+Las manos son las cinco imágenes realistas generadas y aprobadas para el banner,
+convertidas a WebP conservando transparencia y proporción 2:3. Sus 21 puntos y
+conexiones proceden de `manos-fotograficas-puntos.json`, usado en el banner.
+`src/data/hand-landmarks.json` conserva posiciones en un encuadre de 1024 × 1536.
+La foto de dos dedos se refleja junto con los puntos para mantener la orientación
+izquierda. El color de puntos y conexiones es exactamente `#56e7a0`.
+
+Estas imágenes representan posturas; no son fotografías capturadas por el programa.
+Seleccionar un gesto no realiza reconocimiento en el navegador. La landing no solicita
+permisos de cámara ni ejecuta acciones del sistema.
+
+Las descripciones no afirman resultados medidos de usabilidad, precisión o rendimiento.
+El video y las capturas reales del programa siguen pendientes. La institución
+Universidad Nacional de Trujillo y la feria EXPOSIS 2026 fueron indicadas por el usuario.
 
 ## Arquitectura
 

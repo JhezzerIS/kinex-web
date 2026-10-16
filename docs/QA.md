@@ -1,5 +1,11 @@
 # Revisión de la landing Kinex
 
+Actualización del 16 de octubre de 2026: hero, manos realistas, equipo y adaptación
+móvil revisados con **19 pruebas aprobadas**. Evidencia y alcance en
+[QA-2026-10-16.md](QA-2026-10-16.md).
+
+## Registro histórico del 15 de octubre
+
 Revisión local: 15 de octubre de 2026. Resultado: **PASS** para la entrega de la
 landing con multimedia real pendiente. No equivale a validar el programa de
 Windows con una webcam. Las comprobaciones del despliegue público se realizan

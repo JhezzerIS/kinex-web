@@ -33,7 +33,7 @@
       <div class="header-inner shell">
         <a class="brand" href="#inicio" aria-label="Kinex, inicio">
           <img src="./brand/kinex-symbol.svg" alt="" width="39" height="39" />
-          <span>kinex<span class="brand-period">.</span></span>
+          <span aria-hidden="true">inex</span>
         </a>
         <button
           class="menu-toggle"
@@ -48,6 +48,7 @@
           <a href="#proyecto">El proyecto</a>
           <a href="#gestos">Los gestos</a>
           <a href="#arquitectura">Por dentro</a>
+          <a href="#equipo">El equipo</a>
           <a
             class="nav-github"
             href="https://github.com/jean11op/HoloControl-Access"
@@ -65,28 +66,27 @@
       <section class="hero shell" id="inicio" aria-labelledby="hero-title">
         <div class="hero-topline">
           <span>Interacción humana, visión artificial.</span
-          ><span class="project-state"><i aria-hidden="true"></i> Proyecto en desarrollo</span>
+          ><span class="project-state"><i aria-hidden="true"></i> EXPOSIS 2026 · UNT</span>
         </div>
         <div class="hero-layout">
           <div class="hero-copy">
-            <p class="eyebrow hero-eyebrow">HOLA, SOMOS KINEX</p>
+            <p class="eyebrow hero-eyebrow">KINEX · CONTROL GESTUAL</p>
             <h1 id="hero-title">
-              <span class="sr-only">Kinex. </span>El control,<br />en tus
+              <span class="sr-only">Kinex: </span>Controla tu PC<br />con tu
               <span class="handwritten"
-                >manos<svg viewBox="0 0 390 24" aria-hidden="true">
+                >mano<svg viewBox="0 0 390 24" aria-hidden="true">
                   <path d="M4 17C104 2 257 1 384 13" /></svg></span
               >.
             </h1>
             <p class="hero-description">
-              Tu mano se mueve. Kinex interpreta el gesto.<br class="desktop-break" />
-              Una webcam abre otra forma de usar Windows.
+              Kinex convierte los gestos de tu mano en acciones de Windows usando una webcam.
             </p>
             <div class="hero-actions">
-              <a class="button button-dark" href="#gestos"
-                >Explora los gestos <span aria-hidden="true">↗</span></a
+              <a class="button button-primary" href="#gestos"
+                >Explorar gestos <span aria-hidden="true">↗</span></a
               >
-              <a class="text-link" href="#proyecto"
-                >Conoce la idea <span aria-hidden="true">↓</span></a
+              <a class="button button-secondary" href="#arquitectura"
+                >Cómo funciona <span aria-hidden="true">↓</span></a
               >
             </div>
             <div class="hero-note">
@@ -94,7 +94,7 @@
               interacción<br />más personal con el computador.
             </div>
           </div>
-          <figure class="hero-art" aria-label="Ilustración de una mano y sus puntos de seguimiento">
+          <figure class="hero-art" aria-label="Mano izquierda con sus 21 puntos de seguimiento">
             <div class="hero-orbit" aria-hidden="true"></div>
             <div id="hero-hand" class="hand-canvas" aria-hidden="true"></div>
             <div class="art-label art-label-top">
@@ -103,7 +103,7 @@
             <div class="art-label art-label-bottom">
               <span class="mini-crosshair" aria-hidden="true"></span>El gesto se vuelve intención.
             </div>
-            <figcaption>Ilustración del seguimiento de mano</figcaption>
+            <figcaption>Representación del seguimiento de mano</figcaption>
             <svg class="art-coordinate" viewBox="0 0 50 50" aria-hidden="true">
               <path d="M9 7v34h34M5 11l4-4 4 4M39 37l4 4-4 4" />
             </svg>
@@ -190,14 +190,14 @@
                 <span aria-hidden="true">01</span> Índice
               </button>
               <button
-                id="tab-pellizco"
+                id="tab-pulgar"
                 role="tab"
                 aria-selected="false"
                 aria-controls="gesture-panel"
                 tabindex="-1"
-                data-gesture="pellizco"
+                data-gesture="pulgar"
               >
-                <span aria-hidden="true">02</span> Pellizco
+                <span aria-hidden="true">02</span> Pulgar
               </button>
               <button
                 id="tab-dos_dedos"
@@ -442,6 +442,118 @@
         </div>
       </section>
 
+      <section class="team-section section-space" id="equipo" aria-labelledby="team-title">
+        <div class="shell">
+          <div class="section-heading">
+            <div>
+              <p class="small-index">05 / QUIÉNES LO HACEN POSIBLE</p>
+              <h2 id="team-title">Equipo Kinex</h2>
+            </div>
+            <p>Cinco áreas, un mismo proyecto. <br />Universidad Nacional de Trujillo.</p>
+          </div>
+          <ul class="team-grid" aria-label="Integrantes de Kinex">
+            <li class="team-card">
+              <div class="team-portrait">
+                <img
+                  src="./media/team/gabriela-gomez-flores.jpg"
+                  alt="Gabriela Gómez Flores"
+                  width="1149"
+                  height="1368"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="team-area" aria-hidden="true">01</span>
+              </div>
+              <div class="team-info">
+                <p class="team-role">Base de datos</p>
+                <h3>Gabriela <span>Gómez Flores</span></h3>
+                <p class="team-description">Diseño y persistencia de los perfiles.</p>
+                <span class="team-badge">Persistencia de perfiles</span>
+              </div>
+            </li>
+            <li class="team-card">
+              <div class="team-portrait">
+                <img
+                  src="./media/team/cesar-ruiz-vidaurre.jpg"
+                  alt="César Ruiz Vidaurre"
+                  width="1199"
+                  height="1312"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="team-area" aria-hidden="true">02</span>
+              </div>
+              <div class="team-info">
+                <p class="team-role">Dominio y aplicación</p>
+                <h3>César <span>Ruiz Vidaurre</span></h3>
+                <p class="team-description">Reglas de control, perfiles y sesiones.</p>
+                <span class="team-badge">Reglas de control</span>
+              </div>
+            </li>
+            <li class="team-card">
+              <div class="team-portrait">
+                <img
+                  src="./media/team/jhezzer-hilario-lazaro.jpg"
+                  alt="Jhezzer Hilario Lázaro"
+                  width="1230"
+                  height="1278"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="team-area" aria-hidden="true">03</span>
+              </div>
+              <div class="team-info">
+                <p class="team-role">Visión artificial</p>
+                <h3>Jhezzer <span>Hilario Lázaro</span></h3>
+                <p class="team-description">Detección de la mano y reconocimiento de gestos.</p>
+                <span class="team-badge">Reconocimiento de gestos</span>
+              </div>
+            </li>
+            <li class="team-card">
+              <div class="team-portrait">
+                <img
+                  src="./media/team/jean-olivares-polo.jpg"
+                  alt="Jean Olivares Polo"
+                  width="1087"
+                  height="1447"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="team-area" aria-hidden="true">04</span>
+              </div>
+              <div class="team-info">
+                <p class="team-role">Integración con Windows</p>
+                <h3>Jean <span>Olivares Polo</span></h3>
+                <p class="team-description">Acciones protegidas y conexión del núcleo.</p>
+                <span class="team-badge">Acciones en Windows</span>
+              </div>
+            </li>
+            <li class="team-card">
+              <div class="team-portrait">
+                <img
+                  src="./media/team/nahuel-martinez-gutierrez.jpg"
+                  alt="Nahuel Martínez Gutiérrez"
+                  width="1086"
+                  height="1448"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="team-area" aria-hidden="true">05</span>
+              </div>
+              <div class="team-info">
+                <p class="team-role">Interfaz de usuario</p>
+                <h3>Nahuel <span>Martínez Gutiérrez</span></h3>
+                <p class="team-description">Dashboard y experiencia de escritorio.</p>
+                <span class="team-badge">Experiencia de escritorio</span>
+              </div>
+            </li>
+          </ul>
+          <p class="team-footer">
+            EXPOSIS 2026 <span aria-hidden="true">/</span> Universidad Nacional de Trujillo
+          </p>
+        </div>
+      </section>
+
       <section class="closing-section" aria-labelledby="closing-title">
         <div class="shell closing-layout">
           <div>
@@ -469,11 +581,14 @@
     <footer class="site-footer shell">
       <a class="brand" href="#inicio" aria-label="Kinex, volver al inicio"
         ><img src="./brand/kinex-symbol.svg" alt="" width="35" height="35" /><span
-          >kinex<span class="brand-period">.</span></span
+          aria-hidden="true"
+          >inex</span
         ></a
       >
       <p>
-        Movimiento humano. Intención digital.<br /><span>Proyecto académico en desarrollo.</span>
+        Movimiento humano. Intención digital.<br /><span
+          >Universidad Nacional de Trujillo · EXPOSIS 2026</span
+        >
       </p>
       <button class="share-button" id="share-button" type="button">
         Compartir Kinex <span aria-hidden="true">↗</span>

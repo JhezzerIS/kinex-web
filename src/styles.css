@@ -20,6 +20,7 @@
   --blue: #2854d8;
   --blue-dark: #2145b5;
   --blue-light: #edf1fc;
+  --tracking: #56e7a0;
   --lime: #dcebc1;
   --line: #dcded5;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -199,6 +200,31 @@ p {
 .button-dark:hover {
   background: var(--blue);
 }
+.button-primary {
+  background: var(--blue);
+  color: var(--white);
+}
+.button-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid #82887b;
+}
+@media (hover: hover) and (pointer: fine) {
+  .button-primary:hover {
+    background: var(--blue-dark);
+  }
+  .button-secondary:hover {
+    background: var(--blue-light);
+  }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .hero-actions .button:hover {
+    transform: translateY(-2px);
+  }
+  .hero-actions .button:active {
+    transform: scale(0.98);
+  }
+}
 .button > span[aria-hidden] {
   font-size: 21px;
   font-weight: 400;
@@ -220,23 +246,24 @@ p {
 .brand {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0;
   font-size: 32px;
   font-weight: 750;
   letter-spacing: -0.055em;
   line-height: 1;
   min-height: 44px;
 }
-.brand-period {
-  color: var(--blue);
-}
 .brand img {
   flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  margin-left: -5px;
+  margin-right: -3px;
 }
 .site-header nav {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 28px;
   font-size: 13px;
   font-weight: 550;
 }
@@ -315,6 +342,9 @@ p {
   min-height: 670px;
   position: relative;
 }
+.hero-layout > * {
+  min-width: 0;
+}
 .hero-copy {
   padding-block: 55px 50px;
   position: relative;
@@ -325,9 +355,9 @@ p {
   color: var(--blue);
 }
 h1 {
-  font-size: clamp(4rem, 7.1vw, 7.1rem);
-  line-height: 1.02;
-  letter-spacing: -0.078em;
+  font-size: clamp(2.5rem, 5.6vw, 5.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.055em;
   font-weight: 520;
 }
 .handwritten {
@@ -353,8 +383,8 @@ h1 {
   animation: underline-in 750ms var(--ease) 600ms forwards;
 }
 .hero-description {
-  font-size: 17px;
-  line-height: 1.7;
+  font-size: 18px;
+  line-height: 1.65;
   color: var(--muted);
   margin-top: 36px;
   max-width: 460px;
@@ -362,8 +392,19 @@ h1 {
 .hero-actions {
   display: flex;
   align-items: center;
-  gap: 28px;
+  flex-wrap: wrap;
+  gap: 12px;
   margin-top: 32px;
+}
+.hero-actions .button {
+  min-height: 56px;
+  font-size: 16px;
+  gap: 14px;
+  padding: 14px 22px;
+  transition:
+    background-color 160ms var(--ease),
+    color 160ms var(--ease),
+    transform 160ms var(--ease);
 }
 .hero-note {
   display: flex;
@@ -405,14 +446,29 @@ h1 {
 }
 .hero-art > .hand-canvas {
   position: absolute;
-  inset: -3% 6% 8%;
-  transform: rotate(-12deg);
-  filter: drop-shadow(12px 18px 11px rgb(54 56 40 / 6%));
+  inset: 0 8% 8%;
 }
 .hand-canvas svg {
   width: 100%;
   height: 100%;
-  overflow: visible;
+  overflow: hidden;
+}
+.hand-bone {
+  stroke: var(--tracking);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+.hand-joint {
+  fill: var(--tracking);
+}
+.hand-canvas[data-estado='error']:after {
+  content: 'Imagen de la mano no disponible. Revisa la conexión y vuelve a cargar.';
+  position: absolute;
+  inset: auto 0 0;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 12px;
+  font-size: 14px;
 }
 .art-label {
   position: absolute;
@@ -441,7 +497,7 @@ h1 {
 .annotation-dot {
   width: 5px;
   height: 5px;
-  background: var(--blue);
+  background: #23764b;
   border-radius: 50%;
 }
 .art-label-bottom {
@@ -585,10 +641,11 @@ h1 {
   top: 25px;
   display: flex;
   justify-content: space-between;
-  font-size: 8px;
-  letter-spacing: 0.08em;
+  font-size: 11px;
+  letter-spacing: 0.02em;
   color: #646b5d;
   gap: 15px;
+  flex-wrap: wrap;
 }
 .lab-topline > span:first-child {
   display: flex;
@@ -603,7 +660,7 @@ h1 {
 }
 .gesture-visual > .hand-canvas {
   position: absolute;
-  inset: 26px 30px 35px;
+  inset: 65px 30px 42px;
   max-width: 420px;
   margin-inline: auto;
 }
@@ -1141,6 +1198,106 @@ h1 {
   color: var(--muted);
   margin-top: 12px;
 }
+.team-section {
+  background: #f0f1eb;
+  border-top: 1px solid var(--line);
+}
+.team-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 18px;
+}
+.team-card {
+  grid-column: span 2;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: 1px solid #d5d9ce;
+  border-radius: 8px;
+}
+.team-portrait {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: #e5e6df;
+  overflow: hidden;
+  border-radius: 7px 7px 0 0;
+}
+.team-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 32%;
+}
+.team-area {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 12px;
+  border-radius: 4px;
+}
+.team-info {
+  padding: 22px 18px 20px;
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.team-role {
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.5;
+  color: var(--blue);
+  min-height: 36px;
+}
+.team-info h3 {
+  font-size: 24px;
+  letter-spacing: -0.045em;
+  line-height: 1.2;
+  margin-top: 10px;
+}
+.team-info h3 span {
+  display: block;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  margin-top: 5px;
+}
+.team-description {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 16px 0 22px;
+}
+.team-badge {
+  margin-top: auto;
+  display: inline-block;
+  background: #e4ebfa;
+  color: #2346a4;
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 6px 9px;
+  border-radius: 4px;
+}
+.team-footer {
+  margin-top: 32px;
+  padding-top: 22px;
+  border-top: 1px solid #d5d9ce;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
 .closing-section {
   background: var(--blue);
   color: white;
@@ -1277,14 +1434,14 @@ h1 {
 }
 .reveal-ready {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(10px);
 }
 .reveal-ready.is-visible {
   opacity: 1;
   transform: translateY(0);
   transition:
-    opacity 650ms var(--ease),
-    transform 650ms var(--ease);
+    opacity 320ms var(--ease),
+    transform 320ms var(--ease);
 }
 .node-tracing {
   animation: node-trace 650ms var(--ease);
@@ -1313,7 +1470,7 @@ h1 {
     height: 650px;
   }
   h1 {
-    font-size: 112px;
+    font-size: 84px;
   }
 }
 @media (max-width: 1100px) {
@@ -1333,17 +1490,26 @@ h1 {
     padding-block: 50px;
   }
   h1 {
-    font-size: clamp(4rem, 7.5vw, 5.6rem);
+    font-size: clamp(2.5rem, 5.6vw, 5.25rem);
   }
   .hero-description {
-    font-size: 15px;
+    font-size: 16px;
   }
   .hero-actions {
-    gap: 20px;
+    gap: 12px;
   }
   .hero-actions .button {
-    padding-inline: 17px;
-    gap: 14px;
+    padding-inline: 18px;
+    gap: 12px;
+  }
+  .team-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .team-card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+  .team-card:nth-child(5) {
+    grid-column: 4 / span 2;
   }
   .art-label-top {
     right: 0;
@@ -1420,6 +1586,15 @@ h1 {
   }
 }
 @media (max-width: 780px) {
+  .team-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .team-card:nth-child(4) {
+    grid-column: auto / span 2;
+  }
+  .team-card:nth-child(5) {
+    grid-column: 2 / span 2;
+  }
   .shell {
     width: calc(100% - 44px);
   }
@@ -1430,7 +1605,7 @@ h1 {
     font-size: 29px;
   }
   .site-header nav {
-    gap: 18px;
+    gap: 15px;
     font-size: 12px;
   }
   .site-header .nav-github {
@@ -1448,15 +1623,15 @@ h1 {
     padding-block: 46px;
   }
   .hero-eyebrow {
-    font-size: 9px;
+    font-size: 11px;
   }
   .hero-description {
-    font-size: 14px;
+    font-size: 16px;
   }
   .hero-actions {
     flex-direction: column;
     align-items: flex-start;
-    gap: 5px;
+    gap: 12px;
     margin-top: 25px;
   }
   .hero-note {
@@ -1499,7 +1674,7 @@ h1 {
     left: 3%;
   }
   h1 {
-    font-size: clamp(3.6rem, 7.7vw, 4.6rem);
+    font-size: clamp(2.5rem, 5.6vw, 5.25rem);
   }
   .section-space {
     padding-block: 72px;
@@ -1546,13 +1721,13 @@ h1 {
     min-height: 545px;
   }
   .gesture-visual > .hand-canvas {
-    inset: 70px -10px 75px;
+    inset: 70px 10px 60px;
   }
   .lab-topline {
     left: 18px;
     right: 18px;
     flex-wrap: wrap;
-    font-size: 7px;
+    font-size: 11px;
     gap: 7px;
   }
   .gesture-visual-caption {
@@ -1694,6 +1869,55 @@ h1 {
   }
 }
 @media (max-width: 600px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .team-card:nth-child(n) {
+    grid-column: auto;
+    display: grid;
+    grid-template-columns: clamp(84px, 24vw, 110px) minmax(0, 1fr);
+    align-items: center;
+    gap: 14px;
+    padding: 14px;
+  }
+  .team-portrait {
+    aspect-ratio: 3 / 4;
+    border-radius: 4px;
+  }
+  .team-area {
+    width: 26px;
+    height: 26px;
+    left: 6px;
+    bottom: 6px;
+    font-size: 11px;
+  }
+  .team-info {
+    padding: 0;
+    min-width: 0;
+  }
+  .team-role {
+    min-height: 0;
+  }
+  .team-info h3 {
+    margin-top: 7px;
+    font-size: 22px;
+  }
+  .team-info h3 span {
+    font-size: 16px;
+    line-height: 1.35;
+    margin-top: 3px;
+  }
+  .team-description {
+    margin: 12px 0;
+  }
+  .team-badge {
+    padding: 5px 7px;
+  }
+  .team-footer {
+    font-size: 12px;
+    gap: 6px 10px;
+  }
   :root {
     scroll-padding-top: 92px;
   }
@@ -1707,8 +1931,8 @@ h1 {
     font-size: 29px;
   }
   .brand img {
-    width: 34px;
-    height: 34px;
+    width: 39px;
+    height: 39px;
   }
   .menu-toggle {
     display: block;
@@ -1751,98 +1975,95 @@ h1 {
     padding-top: 21px;
   }
   .hero-topline {
-    font-size: 9px;
-    gap: 10px;
+    font-size: 12px;
+    gap: 8px;
+    flex-wrap: wrap;
   }
   .project-state {
     gap: 5px;
-    font-size: 8px;
+    font-size: 12px;
     white-space: nowrap;
   }
   .hero-topline > span:first-child {
-    max-width: 160px;
+    max-width: none;
   }
   .hero-layout {
     grid-template-columns: 1fr;
     min-height: 0;
   }
   .hero-copy {
-    padding-top: 42px;
+    padding-top: 32px;
     padding-bottom: 0;
   }
   .hero-eyebrow {
-    font-size: 9px;
+    font-size: 12px;
     margin-bottom: 19px;
   }
   h1 {
-    font-size: clamp(3.6rem, 14.4vw, 5.3rem);
-    line-height: 1.025;
-    letter-spacing: -0.073em;
+    font-size: clamp(2.5rem, 11vw, 3.75rem);
+    line-height: 1.06;
+    letter-spacing: -0.055em;
   }
   .handwritten svg {
     bottom: -12px;
     height: 20px;
   }
   .hero-description {
-    font-size: 14px;
-    margin-top: 30px;
-    line-height: 1.75;
+    font-size: 16px;
+    margin-top: 24px;
+    line-height: 1.65;
     max-width: 350px;
   }
-  .desktop-break {
-    display: none;
-  }
   .hero-actions {
-    flex-direction: row;
-    align-items: center;
-    gap: 22px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
     margin-top: 25px;
   }
   .hero-actions .button {
-    min-height: 52px;
-    font-size: 11px;
-    padding: 12px 16px;
+    width: 100%;
+    min-height: 56px;
+    font-size: 16px;
+    padding: 14px 22px;
     gap: 16px;
-  }
-  .hero-actions .text-link {
-    font-size: 11px;
-    gap: 8px;
   }
   .hero-note {
     display: none;
   }
   .hero-art {
-    height: 385px;
-    margin: -5px 0 0;
+    height: clamp(260px, 70vw, 360px);
+    margin: 20px 0 0;
     max-width: 400px;
     width: 100%;
     justify-self: center;
   }
   .hero-art > .hand-canvas {
-    inset: -4% 11% 6%;
-    transform: rotate(-12deg);
+    inset: 24px 15% 36px;
   }
   .hero-orbit {
-    width: 80%;
-    left: 12%;
-    top: 11%;
+    width: min(80%, 240px);
+    left: 50%;
+    top: 8%;
+    transform: translateX(-50%);
   }
   .hero-orbit:after {
     inset: 20px;
   }
   .art-label-top {
-    top: 43px;
+    top: 0;
+    left: 0;
     right: 0;
-    max-width: 125px;
-    font-size: 9px;
+    max-width: none;
+    justify-content: center;
+    font-size: 12px;
   }
   .art-label-bottom {
     left: 12px;
     bottom: 48px;
-    font-size: 9px;
+    font-size: 12px;
   }
   .hero-art figcaption {
-    font-size: 8px;
+    font-size: 12px;
     bottom: 12px;
     right: 3px;
   }
@@ -1851,13 +2072,14 @@ h1 {
     bottom: 9px;
   }
   .hero-bottom {
-    font-size: 10px;
+    font-size: 12px;
+    flex-wrap: wrap;
     padding-block: 13px 16px;
     gap: 15px;
   }
   .hero-bottom a {
     gap: 13px;
-    font-size: 7px;
+    font-size: 12px;
     letter-spacing: 0.08em;
   }
   .hero-bottom a > span:last-child {
@@ -1940,7 +2162,7 @@ h1 {
     border-bottom: 1px solid var(--line);
   }
   .gesture-visual > .hand-canvas {
-    inset: 18px 35px 18px;
+    inset: 65px 35px 42px;
     max-width: 290px;
   }
   .lab-topline {
@@ -1948,31 +2170,32 @@ h1 {
     right: 17px;
     top: 18px;
     justify-content: space-between;
-    flex-wrap: nowrap;
-    font-size: 6.7px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    letter-spacing: 0;
     gap: 10px;
   }
   .gesture-visual-caption {
     bottom: 17px;
     left: 17px;
     right: 17px;
-    font-size: 10px;
+    font-size: 12px;
   }
   .gesture-controls {
     padding: 22px;
   }
   .gesture-tabs {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 7px;
   }
   .gesture-tabs button {
-    font-size: 10px;
-    min-height: 44px;
+    font-size: 14px;
+    min-height: 48px;
     padding: 8px;
     gap: 6px;
   }
   .gesture-tabs button > span {
-    font-size: 8px;
+    font-size: 11px;
   }
   .gesture-detail {
     padding-top: 27px;
@@ -1983,7 +2206,7 @@ h1 {
     min-height: 70px;
   }
   .gesture-detail > p:not(.gesture-status) {
-    font-size: 13px;
+    font-size: 16px;
     min-height: 90px;
     line-height: 1.75;
     margin-top: 13px;
@@ -1994,10 +2217,10 @@ h1 {
     margin-top: 17px;
   }
   .gesture-status {
-    font-size: 10px;
+    font-size: 12px;
   }
   .lab-disclaimer {
-    font-size: 10px;
+    font-size: 12px;
     padding-top: 20px;
   }
   .personal-gesture {
@@ -2267,7 +2490,7 @@ h1 {
   .site-footer p {
     grid-column: 1/-1;
     grid-row: 2;
-    font-size: 10px;
+    font-size: 12px;
   }
   .site-footer .share-button {
     justify-self: end;
@@ -2282,6 +2505,9 @@ h1 {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .hero-actions .button:is(:hover, :active) {
+    transform: none;
+  }
   :root {
     scroll-behavior: auto;
   }

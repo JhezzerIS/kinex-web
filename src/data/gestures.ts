@@ -1,5 +1,4 @@
-export type Gesto =
-  'indice' | 'pellizco' | 'dos_dedos' | 'palma_abierta' | 'puno' | 'deslizamiento';
+export type Gesto = 'indice' | 'pulgar' | 'dos_dedos' | 'palma_abierta' | 'puno' | 'deslizamiento';
 
 interface FichaGesto {
   categoria: string;
@@ -20,49 +19,49 @@ export const gestos: Record<Gesto, FichaGesto> = {
     estado: 'Reconocimiento y acción básica implementados.',
     postura: 'Índice extendido',
   },
-  pellizco: {
-    categoria: 'UN CONTACTO CON INTENCIÓN',
-    titulo: 'Acerca los dedos. Haz clic.',
+  pulgar: {
+    categoria: 'UN CLIC CON EL PULGAR',
+    titulo: 'Abre el pulgar. Haz clic.',
     descripcion:
-      'El contacto entre pulgar e índice se reconoce como pellizco. Su inicio, mantenimiento y fin permiten distinguir una interacción sostenida.',
+      'Con el índice extendido, abre y vuelve a cerrar el pulgar para hacer clic. Mantenerlo abierto permite arrastrar y dibujar.',
     intencion: 'Clic izquierdo',
-    estado: 'Clic implementado. Arrastre y dibujo sostenido previstos en el alcance.',
-    postura: 'Pulgar e índice próximos',
+    estado: 'El ciclo de apertura y cierre distingue el clic de una acción sostenida.',
+    postura: 'Índice extendido y pulgar abierto',
   },
   dos_dedos: {
     categoria: 'MOVIMIENTO CONTINUO',
-    titulo: 'Dos dedos. Sigue recorriendo.',
+    titulo: 'Dos dedos. Usa las flechas.',
     descripcion:
-      'Índice y medio extendidos identifican el gesto de desplazamiento. El movimiento vertical se traduce en scroll de la pantalla.',
-    intencion: 'Desplazamiento vertical',
-    estado: 'Reconocimiento y conversión de scroll implementados.',
+      'Extiende el índice y el medio. La dirección de la mano permite usar las flechas del teclado; separar o juntar los dedos activa el zoom.',
+    intencion: 'Flechas en cuatro direcciones',
+    estado: 'Flechas y zoom son gestos diferenciados en el catálogo del sistema.',
     postura: 'Índice y medio extendidos',
   },
   palma_abierta: {
     categoria: 'UNA PAUSA A TIEMPO',
     titulo: 'Abre la mano. Toma una pausa.',
     descripcion:
-      'La palma abierta y quieta solicita una pausa. El tiempo de permanencia ayuda a distinguir la intención de un movimiento pasajero.',
-    intencion: 'Solicitar pausa del control',
+      'Mantén la palma abierta y quieta durante siete segundos para pausar el control. El tiempo sostenido evita pausas por un movimiento pasajero.',
+    intencion: 'Pausar el control',
     estado: 'La aplicación valida el gesto y el estado antes de pausar.',
     postura: 'Palma abierta y quieta',
   },
   puno: {
-    categoria: 'UNA SOLICITUD DE CAMBIO',
-    titulo: 'Cierra la mano. Cambia la intención.',
+    categoria: 'UNA VENTANA MENOS',
+    titulo: 'Cierra la mano. Minimiza.',
     descripcion:
-      'El puño sostenido se reconoce como una señal propia. El diseño del proyecto lo contempla para solicitar el cambio entre cursor y dibujo.',
-    intencion: 'Solicitar cambio de modo',
-    estado: 'Reconocimiento implementado; cambio de modo y dibujo en desarrollo.',
+      'Cierra la mano y mantén el puño durante dos segundos para minimizar la ventana activa.',
+    intencion: 'Minimizar la ventana',
+    estado: 'El puño sostenido está asignado a minimizar en el perfil predeterminado.',
     postura: 'Puño quieto',
   },
   deslizamiento: {
     categoria: 'EL MOVIMIENTO TAMBIÉN HABLA',
-    titulo: 'Desliza. Pasa a lo siguiente.',
+    titulo: 'Desliza. Ajusta el volumen.',
     descripcion:
       'Una palma abierta que se mueve horizontalmente permite distinguir un deslizamiento a la izquierda o a la derecha.',
-    intencion: 'Solicitar cambio de pestaña o diapositiva',
-    estado: 'Ambos sentidos reconocidos; ejecución de estas acciones prevista.',
+    intencion: 'Subir o bajar el volumen',
+    estado: 'Derecha sube el volumen; izquierda lo baja en el perfil predeterminado.',
     postura: 'Palma en deslizamiento horizontal',
   },
 };

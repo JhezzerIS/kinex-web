@@ -9,6 +9,8 @@ const reducirMovimiento = matchMedia('(prefers-reduced-motion: reduce)');
 crearMano(document.querySelector<HTMLElement>('#hero-hand')!);
 const mano = crearMano(document.querySelector<HTMLElement>('#gesture-hand')!, 'indice');
 const tabs = [...document.querySelectorAll<HTMLButtonElement>('[data-gesture]')];
+const panelGesto = document.querySelector<HTMLElement>('#gesture-panel')!;
+let animacionFicha: Animation | undefined;
 
 function seleccionarGesto(nombre: Gesto) {
   const ficha = gestos[nombre];
@@ -17,7 +19,7 @@ function seleccionarGesto(nombre: Gesto) {
     tab.setAttribute('aria-selected', String(activo));
     tab.tabIndex = activo ? 0 : -1;
   });
-  document.querySelector('#gesture-panel')!.setAttribute('aria-labelledby', `tab-${nombre}`);
+  panelGesto.setAttribute('aria-labelledby', `tab-${nombre}`);
   for (const [selector, contenido] of Object.entries({
     '#gesture-category': ficha.categoria,
     '#gesture-name': ficha.titulo,
@@ -27,7 +29,16 @@ function seleccionarGesto(nombre: Gesto) {
     '#gesture-caption': ficha.postura,
   }))
     document.querySelector(selector)!.textContent = contenido;
-  mano.cambiarPostura(nombre);
+  void mano.cambiarPostura(nombre);
+  animacionFicha?.cancel();
+  if (!reducirMovimiento.matches)
+    animacionFicha = panelGesto.animate(
+      [
+        { opacity: 0.65, transform: 'translateY(6px)' },
+        { opacity: 1, transform: 'translateY(0)' },
+      ],
+      { duration: 180, easing: 'cubic-bezier(.22,1,.36,1)' },
+    );
   const figura = document.querySelector<HTMLElement>('#gesture-hand')!;
   figura.getAnimations().forEach((a) => a.cancel());
   if (nombre === 'deslizamiento' && !reducirMovimiento.matches)
@@ -41,6 +52,16 @@ function seleccionarGesto(nombre: Gesto) {
       { duration: 1000, easing: 'cubic-bezier(.22,1,.36,1)' },
     );
 }
+
+reducirMovimiento.addEventListener('change', (evento) => {
+  if (evento.matches) {
+    animacionFicha?.cancel();
+    document
+      .querySelector('#gesture-hand')!
+      .getAnimations()
+      .forEach((animacion) => animacion.cancel());
+  }
+});
 
 tabs.forEach((tab, i) => {
   tab.addEventListener('click', () => seleccionarGesto(tab.dataset.gesture as Gesto));
