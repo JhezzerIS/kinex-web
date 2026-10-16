@@ -1,7 +1,9 @@
-# Material real de Kinex
+# Imágenes de Kinex
 
-Ubicación prevista para `demo-kinex.mp4`, `demo-poster.webp`, `demo-kinex.es.vtt`,
-`interfaz-kinex.webp` y `gestos-kinex.webp`.
+- `hands/`: las cinco manos realistas aprobadas para el banner, optimizadas a WebP.
+  Sus coordenadas están en `src/data/hand-landmarks.json` y el componente
+  `src/components/hand.ts` superpone los 21 puntos y conexiones verdes.
+- `team/`: fotografías originales de los cinco integrantes, identificadas por
+  nombre y apellidos. Los nombres, roles y contribuciones se editan en `index.html`.
 
-No se incluyen archivos ficticios. Para activar el video y las fotografías,
-actualiza `src/data/media.ts` siguiendo `docs/MEDIA.md`.
+La landing no incluye una sección de video.
